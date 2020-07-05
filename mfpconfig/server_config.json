@@ -2,7 +2,7 @@
     "mfp" : {
         "name": "test",
         "protocol": "http",
-        "host": "192.168.1.1",
+        "host": "192.168.1.35",
         "port": "9080",
         "servercred": "admin:admin"
     }
