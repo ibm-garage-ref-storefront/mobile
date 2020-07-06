@@ -46,7 +46,7 @@
                 "BlueAuthLogin": {
                     "properties": {
                         "TokenEndpointURL": {
-                            "value": "http://auth-bluecompute.apps.mfstorefront.os.fyre.ibm.com/oauth/token"
+                            "value": "http://auth-bluecompute.rahultestocp-c33bf0f22ab59313b3628c493e016b88-0000.us-south.containers.appdomain.cloud/oauth/token"
                         },
                         "ClientSecret": {
                             "value": "bluecomputewebs3cret"
@@ -62,7 +62,7 @@
     "backendServices": [
         {
             "service": "catalogService",
-            "baseUrl": "http://catalog-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
+            "baseUrl": "http://catalog-bluecompute.rahultestocp-c33bf0f22ab59313b3628c493e016b88-0000.us-south.containers.appdomain.cloud/micro",
             "auth": {
                 "type": "extauth",
                 "credential": {
@@ -78,7 +78,7 @@
         },
         {
             "service": "ordersService",
-            "baseUrl": "http://orders-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
+            "baseUrl": "http://orders-bluecompute.rahultestocp-c33bf0f22ab59313b3628c493e016b88-0000.us-south.containers.appdomain.cloud/micro",
             "auth": {
                 "type": "extauth",
                 "credential": {
@@ -94,7 +94,7 @@
         },
         {
             "service": "customerService",
-            "baseUrl": "http://customer-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
+            "baseUrl": "http://customer-bluecompute.rahultestocp-c33bf0f22ab59313b3628c493e016b88-0000.us-south.containers.appdomain.cloud/micro",
             "auth": {
                 "type": "extauth",
                 "credential": {
