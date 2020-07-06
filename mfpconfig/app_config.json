@@ -42,31 +42,17 @@
     "adapters": [
         {
             "adapter": "BlueAuthLogin",
-            "connectivity": {
-                "http": {
-                    "connectionTimeoutInMilliseconds": 30000,
-                    "cookiePolicy": "BEST_MATCH",
-                    "dtdvalidationEnabled": false,
-                    "maxConcurrentConnectionsPerNode": 49,
-                    "maxRedirects": 11,
-                    "port": 444,
-                    "protocol": "http",
-                    "socketTimeoutInMilliseconds": 30002
-                }
-            },
-            "properties": {
-                "securityCheckDefinitions": {
-                    "BlueAuthLogin": {
-                        "properties": {
-                            "TokenEndpointURL": {
-                                "value": "<---ENTER TOKEN ENDPOINT URL--->"
-                            },
-                            "ClientSecret": {
-                                "value": "<---ENTER CLIENT SECRET--->"
-                            },
-                            "ClientID": {
-                                "value": "<---ENTER CLIENT ID--->"
-                            }
+            "securityCheckDefinitions": {
+                "BlueAuthLogin": {
+                    "properties": {
+                        "TokenEndpointURL": {
+                            "value": "http://auth-bluecompute.apps.mfstorefront.os.fyre.ibm.com/oauth/token"
+                        },
+                        "ClientSecret": {
+                            "value": "bluecomputewebs3cret"
+                        },
+                        "ClientID": {
+                            "value": "bluecomputeweb"
                         }
                     }
                 }
@@ -75,19 +61,51 @@
     ],
     "backendServices": [
         {
-            "service": "resorts",
-            "baseUrl": "http://mybluemix.net/resorts",
+            "service": "catalogService",
+            "baseUrl": "http://catalog-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
             "auth": {
-                "type": "basic",
+                "type": "extauth",
                 "credential": {
-                    "username": "user",
-                    "password": "pass"
+                    "username": "na",
+                    "password": "na"
                 }
             },
             "ConnectionProperties": {
                 "maxConnetions": "50",
-                "connectionTimeoutInMilliseconds": "20000",
-                "socketTimeoutInMilliseconds": "20000"
+                "connectionTimeoutInMilliseconds": "3000",
+                "socketTimeoutInMilliseconds": "3000"
+            }
+        },
+        {
+            "service": "ordersService",
+            "baseUrl": "http://orders-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
+            "auth": {
+                "type": "extauth",
+                "credential": {
+                    "username": "na",
+                    "password": "na"
+                }
+            },
+            "ConnectionProperties": {
+                "maxConnetions": "50",
+                "connectionTimeoutInMilliseconds": "3000",
+                "socketTimeoutInMilliseconds": "3000"
+            }
+        },
+        {
+            "service": "customerService",
+            "baseUrl": "http://customer-bluecompute.apps.mfstorefront.os.fyre.ibm.com/micro",
+            "auth": {
+                "type": "extauth",
+                "credential": {
+                    "username": "na",
+                    "password": "na"
+                }
+            },
+            "ConnectionProperties": {
+                "maxConnetions": "50",
+                "connectionTimeoutInMilliseconds": "3000",
+                "socketTimeoutInMilliseconds": "3000"
             }
         }
     ],

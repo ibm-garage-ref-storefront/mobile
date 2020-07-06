@@ -21,8 +21,9 @@ export class BlueApiServiceProvider {
     this.userState.accessToken = null;
     this.userState.authenticated = false;
   }
+  
   getCatalog(successCallback, errorCallback) {
-    var restUrl = 'catalog';
+    var restUrl = 'items';
     var requestType = 'GET';
     var options = {
       timeout : 30000,
@@ -32,7 +33,7 @@ export class BlueApiServiceProvider {
   }
   
   getItemById(itemId, successCallback, errorCallback) {
-    var restUrl = 'catalog/' + itemId;
+    var restUrl = 'items/' + itemId;
     var requestType = 'GET';
     var options = {
       timeout : 30000,
@@ -53,7 +54,7 @@ export class BlueApiServiceProvider {
 
   buyItems(parameters, successCallback, errorCallback) {
     var access_token = this.userState.accessToken;
-    var restUrl = 'order';
+    var restUrl = 'orders';
     var requestType = 'POST_AUTH';
     var options = {
       timeout : 30000,
@@ -85,7 +86,7 @@ export class BlueApiServiceProvider {
 
   getCustomerOrders(successCallback, errorCallback) {
     var access_token = this.userState.accessToken;
-    var restUrl = 'order/';
+    var restUrl = 'orders';
     var requestType = 'GET_AUTH';
     var options = {
       timeout : 30000,
@@ -112,8 +113,7 @@ export class BlueApiServiceProvider {
     } else if (requestType == 'POST_AUTH') {
       resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.POST, options);
       resourceRequest.addHeader("ext-token", 'Bearer ' + access_token);
-      resourceRequest.addHeader("Content-Type", 'application/x-www-form-urlencoded')
-      resourceRequest.sendFormParameters(parameters).then(successCallback, errorCallback);
+      resourceRequest.send(parameters).then(successCallback, errorCallback);
     } else {
       errorCallback("Invalid Request");
     }
