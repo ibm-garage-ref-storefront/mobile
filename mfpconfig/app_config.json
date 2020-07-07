@@ -27,7 +27,7 @@
         {
             "name": "push",
             "settings": {
-                "gcm": {
+                "fcm": {
                     "apiKey": "<insert apikey here>",
                     "senderId": "<insert senderid here>"
                 },
