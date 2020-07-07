@@ -14,11 +14,6 @@ export class BlueApiServiceProvider {
     authenticated: false
   };
 
-  public options = {
-    timeout : 30000,
-    backendServiceName : "reference"
-  }
-
   constructor() {
   }
 
@@ -26,77 +21,101 @@ export class BlueApiServiceProvider {
     this.userState.accessToken = null;
     this.userState.authenticated = false;
   }
+  
   getCatalog(successCallback, errorCallback) {
-    var restUrl = 'catalog';
+    var restUrl = 'items';
     var requestType = 'GET';
-    this.invokeService(restUrl, requestType, null, successCallback, errorCallback);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "catalogService"
+    }
+    this.invokeService(restUrl, requestType, null, options, successCallback, errorCallback);
   }
   
   getItemById(itemId, successCallback, errorCallback) {
-    var restUrl = 'catalog/' + itemId;
+    var restUrl = 'items/' + itemId;
     var requestType = 'GET';
-    this.invokeService(restUrl, requestType, null, successCallback, errorCallback);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "catalogService"
+    }
+    this.invokeService(restUrl, requestType, null, options, successCallback, errorCallback);
   }
 
   getItemReviewById(itemId, successCallback, errorCallback) {
     var restUrl = 'review' + itemId;
     var requestType = 'GET';
-    this.invokeService(restUrl, requestType, null, successCallback, errorCallback);
-  }
-
-  loginUser(parameters, successCallback, errorCallback) {
-    var restUrl = 'oauth/token'
-    var requestType = 'POST';
-    this.invokeService(restUrl, requestType, parameters, successCallback, errorCallback);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "reviewService"
+    }
+    this.invokeService(restUrl, requestType, null, options, successCallback, errorCallback);
   }
 
   buyItems(parameters, successCallback, errorCallback) {
     var access_token = this.userState.accessToken;
-    var restUrl = 'order';
+    var restUrl = 'orders';
     var requestType = 'POST_AUTH';
-    this.invokeService(restUrl, requestType, parameters, successCallback, errorCallback, access_token);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "ordersService"
+    }
+    this.invokeService(restUrl, requestType, parameters, options, successCallback, errorCallback, access_token);
   }
 
   addReviewItem(access_token, itemId, parameters, successCallback, errorCallback) {
     var restUrl = 'review' + itemId;
     var requestType = 'POST_AUTH';
-    this.invokeService(restUrl, requestType, parameters, successCallback, errorCallback, access_token);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "reviewService"
+    }
+    this.invokeService(restUrl, requestType, parameters, options, successCallback, errorCallback, access_token);
   }
 
   getCustomerProfile(successCallback, errorCallback) {
     var access_token = this.userState.accessToken;
     var restUrl = 'customer';
     var requestType = 'GET_AUTH';
-    this.invokeService(restUrl, requestType, null, successCallback, errorCallback, access_token);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "customerService"
+    }
+    this.invokeService(restUrl, requestType, null, options, successCallback, errorCallback, access_token);
   }
 
   getCustomerOrders(successCallback, errorCallback) {
     var access_token = this.userState.accessToken;
-    var restUrl = 'order/';
+    var restUrl = 'orders';
     var requestType = 'GET_AUTH';
-    this.invokeService(restUrl, requestType, null, successCallback, errorCallback, access_token);
+    var options = {
+      timeout : 30000,
+      backendServiceName : "ordersService"
+    }
+    this.invokeService(restUrl, requestType, null, options, successCallback, errorCallback, access_token);
   }
 
 
-  private invokeService(restUrl, requestType, parameters, successCallback, errorCallback, access_token?) {
+  private invokeService(restUrl, requestType, parameters, options, successCallback, errorCallback, access_token?) {
     var resourceRequest: WLResourceRequest;
     if (requestType == 'GET') {
-      resourceRequest = new WLResourceRequest(restUrl,WLResourceRequest.GET, this.options);
+      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.GET, options);
       resourceRequest.send().then(successCallback, errorCallback);
     }
     else if (requestType == 'GET_AUTH') {
-      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.GET, this.options);
+      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.GET, options);
       resourceRequest.addHeader("ext-token", 'Bearer ' + access_token);
       resourceRequest.send().then(successCallback, errorCallback);
     }
     else if (requestType == 'DELETE') {
-      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.DELETE, this.options);
+      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.DELETE, options);
       resourceRequest.send().then(successCallback, errorCallback);
     } else if (requestType == 'POST_AUTH') {
-      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.POST, this.options);
+      resourceRequest = new WLResourceRequest(restUrl, WLResourceRequest.POST, options);
       resourceRequest.addHeader("ext-token", 'Bearer ' + access_token);
-      resourceRequest.addHeader("Content-Type", 'application/x-www-form-urlencoded')
-      resourceRequest.sendFormParameters(parameters).then(successCallback, errorCallback);
+      resourceRequest.send(parameters).then(successCallback, errorCallback);
+    } else {
+      errorCallback("Invalid Request");
     }
   }
 
