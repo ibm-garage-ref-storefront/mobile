@@ -1,9 +1,9 @@
 {
     "mfp" : {
-        "name": "OCPServer",
+        "name": "Storefront MF Server",
         "protocol": "http",
-        "host": "storefront-mf-bluecompute.rahultestocp-c33bf0f22ab59313b3628c493e016b88-0000.us-south.containers.appdomain.cloud",
+        "host": "<MobileFoundation server host",
         "port": "80",
-        "servercred": "admin:admin"
+        "servercred": "<admin userid>:<admin passwd>"
     }
 }
