@@ -2,7 +2,7 @@
     "mfp" : {
         "name": "Storefront MF Server",
         "protocol": "http",
-        "host": "<MobileFoundation server host">,
+        "host": "<MobileFoundation server host>",
         "port": "<MobileFoundation server port>",
         "servercred": "<admin userid>:<admin passwd>"
     }
