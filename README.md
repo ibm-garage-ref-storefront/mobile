@@ -16,13 +16,13 @@ IBM Mobile Foundation is positioned as the mobile gateway to the StoreFront prov
 - IBM Mobile Foundation CLI - https://www.npmjs.com/package/mfpdev-cli
 
 ### Usage
-1. Ensure that the Storefront services including Mobile Foundation services are deployed and running
+1. Ensure that all Storefront services including Mobile Foundation services are deployed and running
 2. Clone this repo locally and change current working directory to storefront-mobile-ionic
 ```
 git clone git@github.com:ibm-garage-ref-storefront/storefront-mobile-ionic.git
 cd storefront-mobile-ionic
 ```
-3. If you are setting up Storefront services for the first time or have reset it then you will need to configure Mobile Foundation services for this StoreFront mobile application as follows: -
+3. Configure Mobile Foundation services for this storefront application as follows: -
     - This StoreFront Mobile Application is designed to receive Push Notifications about the progress of StoreFront order shippments. To enable Mobile Foundation Push Notifications service for this application you must configure the service for Push Notification Credentials (FCM, APNS).  Edit `mfpconfig/app_config.json` file and update it for these credentials under json object `services.push.settings`.  To know more about what these settings and credentials are about lookup https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/notifications/sending-notifications/#setting-up-notifications 
     - Edit `mfpconfig/app_config.json` file and update the json object for the key `adapters` with the endpoint url of storefront auth service, clientId and secret
     - Edit `mfpconfig/app_config.json` file and update the json object for the key `backendservices` with the appropriate endpoint urls of the storefront backend services
@@ -41,7 +41,7 @@ cd storefront-mobile-ionic
       Registered app for platform: android
       Registered app for platform: ios
       ```
-Now all the storefront services are up and running and Mobile Fountation is also configured.
+Now all the storefront services are up and running and Mobile Fountation is also configured follow subsequent steps to build and run the storefront mobile application.
 
 4. Edit `ionic/config.xml` file and update the element <mfp:server runtime="mfp" url="<url for mobile foundation server" /> for the url endpoint of the Mobile Foundation server
 5. From a command-line window, navigate to the project's root folder and run the commands:
