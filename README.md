@@ -24,6 +24,8 @@ cd storefront-mobile-ionic
 ```
 3. If you are setting up Storefront services for the first time or have reset it then you will need to configure Mobile Foundation services for this StoreFront mobile application as follows: -
     - This StoreFront Mobile Application is designed to receive Push Notifications about the progress of StoreFront order shippments. To enable Mobile Foundation Push Notifications service for this application you must configure the service for Push Notification Credentials (FCM, APNS).  Edit `mfpconfig/app_config.json` file and update it for these credentials under json object `services.push.settings`.  To know more about what these settings and credentials are about lookup https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/notifications/sending-notifications/#setting-up-notifications 
+    - Edit `mfpconfig/app_config.json` file and update the json object for the key `adapters` with the endpoint url of storefront auth service, clientId and secret
+    - Edit `mfpconfig/app_config.json` file and update the json object for the key `backendservices` with the appropriate endpoint urls of the storefront backend services
     - All other required configurations are already preset into `mfpconfig/app_config.json` file
     - To enable push notification on Android remember to replace `google-services.json` into the directory `ionic` 
     - Edit `mfpconfig/server_config.json` and input the endpoint url, port and admin credentials for the Mobile Foundation Server
@@ -34,28 +36,11 @@ cd storefront-mobile-ionic
       ``` 
       and you must see the following output
       ```
+      Verifying server configuration...
       Registering to server:'http://<mobile foundation endpoint url>:<port>' runtime:'mfp'
       Registered app for platform: android
       Registered app for platform: ios
       ```
-    -  Edit `adapter/BlueAuthLogin/config.json` and input the token endpoint url, client id and client secret of the storefront microservice
-   - Save `adapter/BlueAuthLogin/config.json` file
-   - From the directory `adapter/BlueAuthLogin` run the following command to deploy an Blue Auth Adapter
-   		- ```mfpdev adapter deploy```
-      	- ```mfpdev adapter push```
-  		and you must see the following output
-   	   ```
-     	locahost:BlueAuthLogin user$ mfpdev adapter deploy
-		Verifying server configuration...
-		Deploying adapter to runtime mfp on http://localhost:9080/mfpadmin...
-		Successfully deployed adapter
-		user:BlueAuthLogin user$ mfpdev adapter push
-		Verifying server configuration...
-		Pushing adapter configuration to runtime mfp on http://localhost:9080/mfpadmin...
-		Successfully pushed adapter configuration
-      ``` 
-
-
 Now all the storefront services are up and running and Mobile Fountation is also configured.
 
 4. Edit `ionic/config.xml` file and update the element <mfp:server runtime="mfp" url="<url for mobile foundation server" /> for the url endpoint of the Mobile Foundation server
