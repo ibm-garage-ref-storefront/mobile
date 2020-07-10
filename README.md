@@ -19,8 +19,8 @@ IBM Mobile Foundation is positioned as the mobile gateway to the StoreFront prov
 1. Ensure that all Storefront services including Mobile Foundation services are deployed and running
 2. Clone this repo locally and change current working directory to storefront-mobile-ionic
 ```
-git clone git@github.com:ibm-garage-ref-storefront/storefront-mobile-ionic.git
-cd storefront-mobile-ionic
+git clone git@github.com:ibm-garage-ref-storefront/storefront-mobile.git
+cd storefront-mobile
 ```
 3. Configure Mobile Foundation services for this storefront application as follows: -
     - This StoreFront Mobile Application is designed to receive Push Notifications about the progress of StoreFront order shippments. To enable Mobile Foundation Push Notifications service for this application you must configure the service for Push Notification Credentials (FCM, APNS).  Edit `mfpconfig/app_config.json` file and update it for these credentials under json object `services.push.settings`.  To know more about what these settings and credentials are about lookup https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/notifications/sending-notifications/#setting-up-notifications 
