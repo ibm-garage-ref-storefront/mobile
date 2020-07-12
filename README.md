@@ -47,6 +47,7 @@ Now all the storefront services are up and running and Mobile Fountation is also
 5. From a command-line window, navigate to the project's root folder and run the commands:
     - `cd ionic` - to navigate to application folder
     - `ionic cordova platform add ios` or `ionic cordova platform add android` - to add a platform.
+    - `npm install` - to install all required modules.
     - `ionic cordova run` - to run the application.
 
 6. Run the application to view the catalog, make an order and review the user profile.
