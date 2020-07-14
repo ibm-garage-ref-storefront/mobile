@@ -53,7 +53,7 @@ Now all the storefront services are up and running and Mobile Fountation is also
 6. Run the application to view the catalog, make an order and review the user profile.
  
 ### Running IBM MobileFoundation Services locally (Optional)
-To try out this mobile application it is not necessary that you always need Mobile Foundation services setup on a OpenShift cluster.  You could run and configure Mobile Foundation services locally on your workstation too.  However you will need to do the following: -
+To try out this mobile application it is not necessary that you always need Mobile Foundation services setup on a OpenShift cluster.  You could run and configure Mobile Foundation services locally on your workstation too.  However you will need to do the following:
     - expose the storefront microservices such as catalog, customer, auth, orders with endpoint urls or routes that can be reached from outside of the OpenShift cluster in which they are setup.  
     - ensure that the  `mfpconfig/app_config.json` file is configured with the endpoint urls/routes of the appropriate microservices.  
      
@@ -62,6 +62,7 @@ Now you may run the following command from the root of this repo clone i.e. from
       ```
       mfpdev mfservices start
       ``` 
+      
       and you must see the following output
       
       ```
@@ -79,8 +80,6 @@ To stop Mobile Foundation services running locally run the following command
       mfpdev mfservices stop
       ```
       
-
-
 ### Version
 ionic-angular 3.9.2
 
