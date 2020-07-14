@@ -57,7 +57,7 @@ To try out this mobile application it is not necessary that you always need Mobi
 - expose the storefront microservices such as catalog, customer, auth, orders with endpoint urls or routes that can be reached from outside of the OpenShift cluster in which they are setup.  
 - ensure that the  `mfpconfig/app_config.json` file is configured with the endpoint urls/routes of the appropriate microservices.  
      
-Now you may run the following command from the root of this repo clone i.e. from the directory storefront-mobile
+Now you may run the following command from the root of this repo clone i.e. from the directory storefront-mobile.  This command downloads the Community Edition of IBM Mobile Foundation services and runs it in a local docker container. 
 
 ```
 mfpdev mfservices start
