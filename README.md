@@ -72,12 +72,13 @@ Now you may run the following command from the root of this repo clone i.e. from
       Registering to server:'http://<mobile foundation endpoint url>:<port>' runtime:'mfp'
       Registered app for platform: android
       Registered app for platform: ios
+     ```
      
 If you observe the above output the the Mobile Foundation services are started locally and configured for the storefront services.  From hereon follow from step 4 outlined in the section [Usage](#usage)
 
 To stop Mobile Foundation services running locally run the following command
       ```
-      mfpdev mfservices start
+      mfpdev mfservices stop
       ```
 
 
