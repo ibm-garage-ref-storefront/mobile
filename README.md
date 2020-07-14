@@ -33,12 +33,7 @@ cd storefront-mobile
     - From the root of this repo clone i.e. from the directory storefront-mobile run the following command
       ```
       mfpdev app register
-      ``` 
-      Alternatively, if you like to run and configure IBM Mobile Foundation services locally on your workstation then run the following command from the root of this repo clone i.e. from the directory storefront-mobile
       ```
-      mfpdev mfservices start
-      ``` 
-      
       and you must see the following output
       ```
       Verifying server configuration...
@@ -72,7 +67,7 @@ Now you may run the following command from the root of this repo clone i.e. from
       Registering to server:'http://<mobile foundation endpoint url>:<port>' runtime:'mfp'
       Registered app for platform: android
       Registered app for platform: ios
-     ```
+      ```
      
 If you observe the above output the the Mobile Foundation services are started locally and configured for the storefront services.  From hereon follow from step 4 outlined in the section [Usage](#usage)
 
