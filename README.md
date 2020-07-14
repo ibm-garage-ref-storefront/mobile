@@ -53,32 +53,30 @@ Now all the storefront services are up and running and Mobile Fountation is also
 6. Run the application to view the catalog, make an order and review the user profile.
  
 ### Running IBM MobileFoundation Services locally (Optional)
-To try out this mobile application it is not necessary that you always need Mobile Foundation services setup on a OpenShift cluster.  You could run and configure Mobile Foundation services locally on your workstation too.  However you will need to do the following:
-    - expose the storefront microservices such as catalog, customer, auth, orders with endpoint urls or routes that can be reached from outside of the OpenShift cluster in which they are setup.  
-    - ensure that the  `mfpconfig/app_config.json` file is configured with the endpoint urls/routes of the appropriate microservices.  
+To try out this mobile application it is not necessary that you always need Mobile Foundation services setup on a OpenShift cluster.  You could run and configure Mobile Foundation services locally on your workstation too.  However you will need to do the following: - 
+- expose the storefront microservices such as catalog, customer, auth, orders with endpoint urls or routes that can be reached from outside of the OpenShift cluster in which they are setup.  
+- ensure that the  `mfpconfig/app_config.json` file is configured with the endpoint urls/routes of the appropriate microservices.  
      
 Now you may run the following command from the root of this repo clone i.e. from the directory storefront-mobile
 
-      ```
-      mfpdev mfservices start
-      ``` 
+```
+mfpdev mfservices start
+``` 
+and you must see the following output
       
-      and you must see the following output
-      
-      ```
-      Verifying server configuration...
-      Registering to server:'http://<mobile foundation endpoint url>:<port>' runtime:'mfp'
-      Registered app for platform: android
-      Registered app for platform: ios
-      ```
+```
+Verifying server configuration...
+Registering to server:'http://<mobile foundation endpoint url>:<port>' runtime:'mfp'
+Registered app for platform: android
+Registered app for platform: ios
+```
      
 If you observe the above output the the Mobile Foundation services are started locally and configured for the storefront services.  From hereon follow from step 4 outlined in the section [Usage](#usage)
 
 To stop Mobile Foundation services running locally run the following command
-
-      ```
-      mfpdev mfservices stop
-      ```
+```
+mfpdev mfservices stop
+```
       
 ### Version
 ionic-angular 3.9.2
