@@ -22,21 +22,23 @@ git clone git@github.com:ibm-garage-ref-storefront/storefront-mobile.git
 cd storefront-mobile
 ```
 2. Ensure that all Storefront microservices - catalog, auth, customer, orders and IBM Mobile Foundation services are deployed and running.  
- - To setup and run the storefront microservices refer to the approprite repos under [ibm-garage-ref-storefront](https://github.com/ibm-garage-ref-storefront)
- - To setup the community edition of IBM Mobile Foundation on a OpenShift cluster run the following commands
-    ```
-    oc login <openshift login server url and credentials>
-    oc project <store front project in which the other storefront microservices have been deployed>
-    oc c apply --recursive --filename mobilefoundation
-    ```
-    Verify if Mobile Foundation is up and running and expose it's service route to be used by the mobile client application
-    ```
-    oc get pods
-    NAME                                               READY   STATUS      RESTARTS   AGE
-    storefront-mf-5cdb7b89fc-fthrw                     1/1     Running     0          150m
+  - To setup and run the storefront microservices refer to the approprite repos under [ibm-garage-ref-storefront](https://github.com/ibm-garage-ref-storefront)
+  - IBM Mobile Foundation can be installed as follows:-
+    - If you have purchased IBM CloudPak for Applications then IBM Mobile Foundation comes as part of that pack and can be installed as detailed [here](https://www.ibm.com/support/knowledgecenter/en/SSCSJL_4.1.x/install-mf-cli.html)
+    - Alternatively, for trial and development purposes you can setup the community edition of IBM Mobile Foundation on a OpenShift cluster run the following commands
+     ```
+     oc login <openshift login server url and credentials>
+     oc project <store front project in which the other storefront microservices have been deployed>
+     oc c apply --recursive --filename mobilefoundation
+     ```
+     Verify if Mobile Foundation is up and running and expose it's service route to be used by the mobile client application
+     ```
+     oc get pods
+     NAME                                               READY   STATUS      RESTARTS   AGE
+     storefront-mf-5cdb7b89fc-fthrw                     1/1     Running     0          150m
     
-    oc expose svc storefront-mf
-    ```
+     oc expose svc storefront-mf
+     ```
 3. Configure Mobile Foundation services for this storefront application as follows: -
     - This StoreFront Mobile Application is designed to receive Push Notifications about the progress of StoreFront order shippments. To enable Mobile Foundation Push Notifications service for this application you must configure the service for Push Notification Credentials (FCM, APNS).  Edit `mfpconfig/app_config.json` file and update it for these credentials under json object `services.push.settings`.  To know more about what these settings and credentials are about lookup https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/notifications/sending-notifications/#setting-up-notifications 
     - Edit `mfpconfig/app_config.json` file and update the json object for the key `adapters` with the endpoint url of storefront auth service, clientId and secret
