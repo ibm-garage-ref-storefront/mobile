@@ -29,11 +29,13 @@ cd storefront-mobile
     oc project <store front project in which the other storefront microservices have been deployed>
     oc c apply --recursive --filename mobilefoundation
     ```
-    Verify if Mobile Foundation is up and running
+    Verify if Mobile Foundation is up and running and expose it's service route to be used by the mobile client application
     ```
     oc get pods
     NAME                                               READY   STATUS      RESTARTS   AGE
     storefront-mf-5cdb7b89fc-fthrw                     1/1     Running     0          150m
+    
+    oc expose svc storefront-mf
     ```
 3. Configure Mobile Foundation services for this storefront application as follows: -
     - This StoreFront Mobile Application is designed to receive Push Notifications about the progress of StoreFront order shippments. To enable Mobile Foundation Push Notifications service for this application you must configure the service for Push Notification Credentials (FCM, APNS).  Edit `mfpconfig/app_config.json` file and update it for these credentials under json object `services.push.settings`.  To know more about what these settings and credentials are about lookup https://mobilefirstplatform.ibmcloud.com/tutorials/en/foundation/8.0/notifications/sending-notifications/#setting-up-notifications 
