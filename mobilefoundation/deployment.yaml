@@ -17,7 +17,7 @@ spec:
     spec:      
       containers:
       - name: storefront-mf
-        image: "ibmcom/ibm-mobilefoundation-ce:1.2.0"
+        image: "ibmcom/ibm-mobilefoundation-ce:latest"
         imagePullPolicy: "IfNotPresent"
         resources:
           requests:
